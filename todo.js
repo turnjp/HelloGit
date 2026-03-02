@@ -74,8 +74,18 @@ function toggleDone(index) {
 }
 
 function deleteTodo(index) {
-  todos.splice(index, 1);
-  render();
+  const items = todoList.querySelectorAll('li');
+  const li = items[index];
+  if (li) {
+    li.classList.add('removing');
+    li.addEventListener('animationend', () => {
+      todos.splice(index, 1);
+      render();
+    }, { once: true });
+  } else {
+    todos.splice(index, 1);
+    render();
+  }
 }
 
 addBtn.addEventListener('click', addTodo);
