@@ -2,8 +2,23 @@ const input = document.getElementById('todo-input');
 const addBtn = document.getElementById('add-btn');
 const todoList = document.getElementById('todo-list');
 const todoCount = document.getElementById('todo-count');
+const themeToggle = document.getElementById('theme-toggle');
 
 let todos = [];
+
+function applyTheme(dark) {
+  document.body.classList.toggle('dark', dark);
+  themeToggle.textContent = dark ? '☀️' : '🌙';
+}
+
+const savedTheme = localStorage.getItem('theme');
+applyTheme(savedTheme === 'dark');
+
+themeToggle.addEventListener('click', () => {
+  const isDark = document.body.classList.toggle('dark');
+  themeToggle.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
 
 function render() {
   todoList.innerHTML = '';

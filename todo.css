@@ -26,8 +26,34 @@ body {
 h1 {
   font-size: 1.8rem;
   color: #1a1a2e;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   text-align: center;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+#theme-toggle {
+  background: none;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: border-color 0.2s, background 0.2s;
+  position: absolute;
+  right: 0;
+}
+
+#theme-toggle:hover {
+  border-color: #6366f1;
+  background: #ede9fe;
 }
 
 .input-row {
@@ -142,9 +168,82 @@ li.done .check-btn {
   background: #fee2e2;
 }
 
-.empty-msg {
-  text-align: center;
-  color: #9ca3af;
-  font-size: 0.95rem;
-  padding: 20px 0;
+/* Dark theme */
+body.dark {
+  background: #0f172a;
+}
+
+body.dark .container {
+  background: #1e293b;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark h1 {
+  color: #e2e8f0;
+}
+
+body.dark .input-row input {
+  background: #334155;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+body.dark .input-row input::placeholder {
+  color: #94a3b8;
+}
+
+body.dark .input-row input:focus {
+  border-color: #818cf8;
+}
+
+body.dark .todo-count {
+  color: #94a3b8;
+}
+
+body.dark ul#todo-list li {
+  background: #334155;
+}
+
+body.dark ul#todo-list li:hover {
+  background: #3e4f63;
+}
+
+body.dark .todo-text {
+  color: #e2e8f0;
+}
+
+body.dark ul#todo-list li.done .todo-text {
+  color: #64748b;
+}
+
+body.dark .check-btn {
+  border-color: #475569;
+}
+
+body.dark li.done .check-btn {
+  background: #818cf8;
+  border-color: #818cf8;
+}
+
+body.dark .delete-btn {
+  color: #475569;
+}
+
+body.dark .delete-btn:hover {
+  color: #f87171;
+  background: #450a0a;
+}
+
+body.dark .empty-msg {
+  color: #64748b;
+}
+
+body.dark #theme-toggle {
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+body.dark #theme-toggle:hover {
+  border-color: #818cf8;
+  background: #312e81;
 }
